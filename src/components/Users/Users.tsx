@@ -102,7 +102,7 @@ const Users = () => {
                     <button
                       onClick={() => deleteUser(item.userId, item.firstName)}
                     >
-                      <i className="fas fa-trash-alt"></i>
+                     <i className="fa fa-trash-o"></i>
                     </button>
                   </Link>
                   <br />
