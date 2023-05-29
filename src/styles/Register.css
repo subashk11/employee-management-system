@@ -1,0 +1,75 @@
+.register-user {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .lab {
+    margin-bottom: 5px;
+  }
+  
+  .input-field {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .input-field:focus {
+    outline: none;
+    box-shadow: 0 0 5px #999;
+  }
+  
+  .submit-button {
+    background-color: grey;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    opacity: 0.8;
+  }
+  
+  .back-button {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .back-button input {
+    background-color: grey;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .back-button input:hover {
+    opacity: 0.8;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  
+  

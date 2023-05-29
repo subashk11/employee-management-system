@@ -1,0 +1,57 @@
+.users-list {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  tbody td {
+    padding: 10px;
+  }
+  
+  .actions-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .actions-container a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .input-button {
+    background-color: grey;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .input-button:hover {
+    opacity: 0.8;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;  
+  }
+
+  .buttons-container button{
+    background-color: #4361ee;
+    height: 40px;
+    width: 80px;
+    color: white;
+    justify-content: space-between;
+  }
