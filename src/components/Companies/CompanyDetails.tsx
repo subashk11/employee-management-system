@@ -46,7 +46,12 @@ const CompanyDetails = () => {
     <div className="company-details-main">
       <div className="buttons-container">
         <Link to={`/companies`}>
-          <button>Back</button>
+        <button>
+            <i className="fa fa-chevron-left fa-lg" aria-hidden="true">
+              {" "}
+              Back
+            </i>
+          </button>
         </Link>
         <Link to={`/companies/addUser/${companyId}`}>
           <button>Add Users</button>
@@ -55,6 +60,7 @@ const CompanyDetails = () => {
       <div className="company-details-container">
         <div className="left-tile">
           <h1>Company Details</h1>
+          <div className="buttons-container">
           <Link to={`/companies/editCompany/${companyId}`}>
             <button className="actionbtn-e">
               <i className="fa fa-edit icon-e"></i>
@@ -62,9 +68,10 @@ const CompanyDetails = () => {
             </button>
           </Link>
             <button className="actionbtn-e"  onClick={() => deleteCompany(companyId,companyName)}>
-              <i className="fas fa-trash-alt"></i>
+              <i className="fa fa-trash-o"></i>
               Delete
             </button>
+          </div>
           <div className="company-details">
             <h4>Name     : {companyName}</h4>
             <p><b>Address : </b>{address}</p>
@@ -73,8 +80,8 @@ const CompanyDetails = () => {
           </div>
         </div>
         <div className="right-tile">
-          <h1>Sample Text</h1>
-          <p>This is a sample text in the right tile.</p>
+          <h1>Location</h1>
+          <p>This is the location of the Company.</p>
           <CompanyMap  latitude={latitude} longitude={longitude} />
         </div>
       </div>

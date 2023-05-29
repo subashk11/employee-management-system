@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import swal from 'sweetalert';
 
 const initialState = {
   companyName: "",
@@ -21,7 +22,13 @@ const RegisterCompany = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submit button is clicked!");
+    
+     // Check if name and address fields are filled
+  if (!companyName || !address) {
+    swal("Error", "Please fill in both the name and address fields.", "error");
+    return;
+  }
+
     const { latitude, longitude } = await geocodeAddress(address);
     console.log("This is the address: ", address);
     if (latitude && longitude) {
@@ -116,12 +123,14 @@ const RegisterCompany = () => {
   return (
     <div>
       <h1>This is the RegisterCompany page</h1>
-      <Link to={`/companies/companyDetails/${id}`}>
+      <div className="buttons-container">
+      <Link to={`/companies`}>
         <button>
+        <i className="fa fa-chevron-left fa-lg" aria-hidden="true"></i>
            Back to List
-          <i className="fas fa-home fa-lg"></i>
         </button>
       </Link>
+      </div>
       <div className="register-user">
       <form className="form" onSubmit={handleSubmit} action="#">
         <label className="lab">Company Name</label>

@@ -15,7 +15,8 @@ const Register = () => {
   };
 
   const [state, setState] = useState(initialState);
-  const { firstName, lastName, emailId, dateOfBirth, designation, companyId } = state;
+  const { firstName, lastName, emailId, dateOfBirth, designation, companyId } =
+    state;
 
   const navigate = useNavigate();
 
@@ -36,7 +37,9 @@ const Register = () => {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailId)) {
-      setErrors({ email: "Invalid email format. Please enter a valid email address." });
+      setErrors({
+        email: "Invalid email format. Please enter a valid email address.",
+      });
       return;
     }
 
@@ -94,14 +97,15 @@ const Register = () => {
     <div className="main">
       <h1>Create New User!</h1>
       <div className="buttons-container">
-          <Link to="/users">
-            <button className="back-button">
-            <i className="fa fa-chevron-left fa-lg" aria-hidden="true"></i>
-            {"   "}
+        <Link to="/users">
+          <button>
+            <i className="fa fa-chevron-left fa-lg" aria-hidden="true">
+              {" "}
               Back
-            </button>
-          </Link>
-        </div>
+            </i>
+          </button>
+        </Link>
+      </div>
       <div className="register-user">
         <form className="form" onSubmit={handleSubmit}>
           <label className="lab">First Name</label>
@@ -136,7 +140,8 @@ const Register = () => {
             value={emailId}
             onChange={handleInputChange}
           />
-          {errors.email && <span className="error">{errors.email}</span>} {/* Display email error */}
+          {errors.email && <span className="error">{errors.email}</span>}{" "}
+          {/* Display email error */}
           <br />
           <label className="lab">Date of Birth</label>
           <input

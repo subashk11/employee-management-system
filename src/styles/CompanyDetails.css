@@ -3,24 +3,31 @@
   display: flex;
 }
 
+.company-details-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .left-tile,
 .right-tile {
-  width: 50%;
+  flex: 1;
   padding: 20px;
   box-sizing: border-box;
+  color: black;
+  border-radius: 10px;
+  margin: 30px;
 }
 
 .left-tile {
   background-color: #f2f2f2;
   border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 .right-tile {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
-  border-radius: 5px;
 }
+
 
 .company-details {
   margin-bottom: 20px;

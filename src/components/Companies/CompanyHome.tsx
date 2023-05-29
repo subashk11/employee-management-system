@@ -33,15 +33,16 @@ const CompanyHome = () => {
       <h1>Company List</h1>
       <div className="buttons-container">
         <Link to="/">
-          <button>
-            Home
-          <i className="fas fa-home fa-lg"></i>
+        <button>
+            <i className="fa fa-chevron-left fa-lg" aria-hidden="true">
+              {" "}
+              Back
+            </i>
           </button>
         </Link>
         <Link to="/companies/createCompany">
           <button>
             create
-            <i className="fas fa-user-plus fa-lg"></i>
           </button>
         </Link>
         </div>

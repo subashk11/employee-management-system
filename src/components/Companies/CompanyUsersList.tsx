@@ -102,7 +102,7 @@ const CompanyUsersList = ({ companyId }: { companyId: string | undefined }) => {
                 <td>
                   <Link to={`/users/editUser/${item.userId}`}>
                     <button className="actionbtn-e">
-                    <i className='far fa-edit'></i>
+                    <i className='fa fa-edit icon-e'></i>
                     </button>
                   </Link>
                   <br />
@@ -110,7 +110,7 @@ const CompanyUsersList = ({ companyId }: { companyId: string | undefined }) => {
                     <button
                       onClick={() => removeUser(item.userId, item.firstName)}
                     >
-                      <i className="fas fa-trash-alt"></i>
+                      <i className="fa fa-trash-o"></i>
                     </button>
                   
                   <br />

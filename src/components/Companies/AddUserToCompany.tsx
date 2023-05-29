@@ -1,7 +1,7 @@
 import react, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import '../../styles/Users.css';
+import "../../styles/Users.css";
 
 interface form {
   userId: string;
@@ -18,14 +18,24 @@ const AddUserToCompany = () => {
   //Here the data is set to the data variable using the form interface
   const [data, setData] = useState<Array<form>>([]);
 
-  const {id} = useParams();
-  console.log("param id",id)
-  const [userId,firstName,lastName,emailId,Active,designation,dateOfBirth,companyId] = data;
-  
-  
+  const { id } = useParams();
+  console.log("param id", id);
+  const [
+    userId,
+    firstName,
+    lastName,
+    emailId,
+    Active,
+    designation,
+    dateOfBirth,
+    companyId,
+  ] = data;
+
   //Method to get the api value from the server.
   const loadData = async () => {
-    const responseData = await axios.get(`http://localhost:5000/companies/getAllUsers/${id}`);
+    const responseData = await axios.get(
+      `http://localhost:5000/companies/getAllUsers/${id}`
+    );
     setData(responseData.data);
   };
 
@@ -34,27 +44,33 @@ const AddUserToCompany = () => {
     loadData();
   }, [id]);
 
-    // detele operation
-    const addUser = (tempId: string,firstName:string) => {
-      if (window.confirm(`Are you sure that you want to delete that ${firstName} ?`)) {
-        axios.put(`http://localhost:5000/companies/addUser`,{
-            id,
-            tempId
-        }).then((response) =>{
-            console.log('companyId',id, ' userId ',tempId);
-            console.log(response);
+  // detele operation
+  const addUser = (tempId: string, firstName: string) => {
+    if (
+      window.confirm(`Are you sure that you want to add the ${firstName} ?`)
+    ) {
+      axios
+        .put(`http://localhost:5000/companies/addUser`, {
+          id,
+          tempId,
+        })
+        .then((response) => {
+          console.log("companyId", id, " userId ", tempId);
+          console.log(response);
         });
-     
-        setTimeout(() => loadData(), 500);
-      }
-    };
+
+      setTimeout(() => loadData(), 500);
+    }
+  };
   return (
     <div className="users-list">
       <div className="buttons-container">
-      <Link to={`/companies/companyDetails/${id}`}>
+        <Link to={`/companies/companyDetails/${id}`}>
           <button>
-            Back
-          <i className="fas fa-home fa-lg"></i>
+            <i className="fa fa-chevron-left fa-lg" aria-hidden="true">
+              {" "}
+              Back
+            </i>
           </button>
         </Link>
       </div>
@@ -84,9 +100,12 @@ const AddUserToCompany = () => {
                 <td>{item.dateOfBirth}</td>
                 <td>{item.companyId}</td>
                 <td>
-                    <button className="actionbtn-e" onClick={() => addUser(item.userId, item.firstName)}>
-                      Add User
-                    </button>
+                  <button
+                    className="actionbtn-e"
+                    onClick={() => addUser(item.userId, item.firstName)}
+                  >
+                    Add User
+                  </button>
                 </td>
               </tr>
             );

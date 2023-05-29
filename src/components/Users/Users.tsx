@@ -54,20 +54,24 @@ const Users = () => {
     <div className="users-list">
       <div className="buttons-container">
       <Link to="/">
-          <button>
-            Home
-         <i className=" fas fa-home fa-lg"></i>
+      <button>
+            <i className="fa fa-chevron-left fa-lg" aria-hidden="true">
+              {" "}
+              Back
+            </i>
           </button>
         </Link>
         <Link to="/users/createUser">
         <button>
-          create
-          <i className="fas fa-user-plus fa-lg"></i>
+            <i className="fa fa-user-circle-o fa-lg" aria-hidden="true">
+            {"  "}
+              Create
+            </i>
           </button>
         </Link>
       </div>
       <table align="center">
-        <thead>
+        <thead className="table-head">
           <th>User Id</th>
           <th>FirstName</th>
           <th>LastName</th>
