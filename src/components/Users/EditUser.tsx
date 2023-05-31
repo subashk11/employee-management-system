@@ -21,8 +21,6 @@ const EditUser = () => {
   const { firstName, lastName, emailId, dateOfBirth, designation, companyId } =
     state;
     const user = useParams();
-    //user is a object
-    console.log(user);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/users/get/${user.id}`).then((resp) =>{
@@ -41,6 +39,31 @@ const EditUser = () => {
   //function to handle the changes in the form.
 
   const handleChanges = () =>{
+    // Validate the form fields
+    if (!firstName || !lastName || !emailId || !dateOfBirth || !designation) {
+      swal({
+        title: "Error",
+        text: "All fields are required. Please fill in all the fields.",
+        icon: "error",
+      });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailId)) {
+      return;
+    }
+
+    const dateRegex = /^\d{4}\/\d{2}\/\d{2}$/;
+    if (!dateRegex.test(dateOfBirth)) {
+      swal({
+        title: "Error",
+        text: "Invalid date format. Please enter the date in YYYY/MM/DD format.",
+        icon: "error",
+      });
+      return;
+    }
+
     axios.put(`http://localhost:5000/users/updateProfile/${user.id}`,{
         firstName,
         lastName,
@@ -98,7 +121,7 @@ const EditUser = () => {
         <label className="lab">Email</label>
         <input
           className="input-field"
-          type="text"
+          type="email"
           id="emailId"
           name="emailId"
           placeholder="Email"

@@ -133,7 +133,7 @@ const Register = () => {
           <label className="lab">Email</label>
           <input
             className="input-field"
-            type="text"
+            type="email"
             id="emailId"
             name="emailId"
             placeholder="Email"
